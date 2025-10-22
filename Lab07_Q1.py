@@ -56,13 +56,11 @@ for t in tpoints:
     k4 = h * rhs(r + k3)
     r += (k1 + 2 * k2 + 2 * k3 + k4) / 6
 
-
-
 "Plotting Trajectory of a Ball Bearing Around a Space Rod"
 plt.figure()
 
 # Plotting trajectory of a ball bearing around a space rod
-plt.plot(xpoints, ypoints, ls = '-', color = 'Teal')
+plt.plot(xpoints, ypoints, ls = ':', color = 'Teal')
 
 # Labels
 plt.title("Trajectory of a Ball Bearing Around a Space Rod", fontsize = 12)
