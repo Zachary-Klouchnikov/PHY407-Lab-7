@@ -1,6 +1,7 @@
 __authors__ = "Zachary Klouchnikov and Hannah Semple"
 
-# HEADER. Code adapted from Mark Newman's squarewell.py.
+# This file provides the python code associated with answering Newman’s Exercise 8.14, where we approximate the 
+# energy levels and wavefunctions of a harmonic and anharmonic quantum oscillator. Code adapted from Mark Newman's squarewell.py.
 
 """
 IMPORTS
@@ -65,7 +66,7 @@ def solve(E):
         k3 = h*f(r+0.5*k2,x+0.5*h,E)
         k4 = h*f(r+k3,x+h,E)
         r += (k1+2*k2+2*k3+k4)/6
-        if cycle==9:
+        if cycle==9:  #once we have reached the desired cycle, track psi
             psis.append(r[0])
     return r[0]
 
@@ -79,7 +80,7 @@ E2 = e
 psi2 = solve(E1)
 
 target = e/1000
-cycle = 0
+cycle = 0  #E0 takes 9 cycles to find, so we start with cycle = 0
 psis = []
 while abs(E1-E2)>target:
     psi1,psi2 = psi2,solve(E2)
@@ -89,14 +90,14 @@ while abs(E1-E2)>target:
 print("E_0 =",E2/e,"eV")
 plt.figure()
 psis = np.array(psis)
-norm = simpson(abs(psis[:500])**2, np.linspace(-10*a,0,500))
+norm = simpson(abs(psis[:500])**2, np.linspace(-10*a,0,500))  #finding normalisation constant with half of the wavefunction
 plt.plot(np.linspace(-10*a,10*a,N), np.array(psis)/sqrt(2*norm), linewidth=3,alpha=0.3, label='$\psi_{0}$', color ='teal')
 
 
 E1 = 400.0 *e
 E2 = e
 psi2 = solve(E1)
-cycle=3
+cycle=3  #E1 takes 6 cycles to find, so we start with cycle = 3
 psis = []
 target = e/1000
 while abs(E1-E2)>target:
@@ -104,15 +105,14 @@ while abs(E1-E2)>target:
     E1,E2 = E2,E2-psi2*(E2-E1)/(psi2-psi1)
     cycle += 1
 print("E_1 =",E2/e,"eV")
-
-norm = simpson(np.abs(array(psis[:500]))**2, np.linspace(-10*a,0,500))
+norm = simpson(np.abs(array(psis[:500]))**2, np.linspace(-10*a,0,500))  #finding normalisation constant with half of the wavefunction
 plt.plot(np.linspace(-10*a,10*a,N), array(psis) / (-sqrt(2*norm)), linewidth=3,alpha=0.3, label='$\psi_{1}$', color ='coral')
 
 
 E1 = 600.0 *e
 E2 = e
 psi2 = solve(E1)
-cycle=0
+cycle=0  #E2 takes 9 cycles to find, so we start with cycle = 0
 psis = []
 target = e/1000
 while abs(E1-E2)>target:
@@ -121,7 +121,7 @@ while abs(E1-E2)>target:
     cycle+=1
 
 print("E_2 =",E2/e,"eV")
-norm = simpson(np.abs(array(psis[:500]))**2, np.linspace(-10*a,0,500))
+norm = simpson(np.abs(array(psis[:500]))**2, np.linspace(-10*a,0,500))  #finding normalisation constant with half of the wavefunction
 plt.plot(np.linspace(-10*a,10*a,N), psis / sqrt(2*norm), linewidth=3,alpha=0.3, label='$\psi_{2}$', color ='purple')
 
 
@@ -171,7 +171,7 @@ def V(x):
 E1 = 100.0 *e
 E2 = e
 psi2 = solve(E1)
-cycle = 2
+cycle = 2  #E0 takes 7 cycles to find, so we start with cycle = 2
 psis = []
 
 target = e/1000
@@ -182,14 +182,14 @@ while abs(E1-E2)>target:
 
 plt.figure()
 print("E_0 =",E2/e,"eV")
-norm = simpson(np.abs(array(psis[:500]))**2, np.linspace(-10*a,0,500))
+norm = simpson(np.abs(array(psis[:500]))**2, np.linspace(-10*a,0,500))  #finding normalisation constant with half of the wavefunction
 plt.plot(np.linspace(-10*a,10*a,N), psis / sqrt(2*norm), label='$\psi_{0}$', color ='teal')
 
 
 E1 = 800.0 *e
 E2 = 600.0*e
 psi2 = solve(E1)
-cycle = 4
+cycle = 4  #E1 takes 5 cycles to find, so we start with cycle = 4
 psis = []
 
 target = e/1000
@@ -199,13 +199,13 @@ while abs(E1-E2)>target:
     cycle+=1
 
 print("E_1 =",E2/e,"eV")
-norm = simpson(np.abs(array(psis[:500]))**2, np.linspace(-10*a,0,500))
+norm = simpson(np.abs(array(psis[:500]))**2, np.linspace(-10*a,0,500))  #finding normalisation constant with half of the wavefunction
 plt.plot(np.linspace(-10*a,10*a,N), psis / sqrt(2*norm), label='$\psi_{1}$', color ='coral')
 
 E1 = 1500.0 *e
 E2 = 1400*e
 psi2 = solve(E1)
-cycle = 5
+cycle = 5  #E2 takes 4 cycles to find, so we start with cycle = 5
 psis = []
 
 target = e/1000
@@ -215,7 +215,7 @@ while abs(E1-E2)>target:
     cycle+=1
     
 print("E_2 =",E2/e,"eV")
-norm = simpson(np.abs(array(psis[:500]))**2, np.linspace(-10*a,0,500))
+norm = simpson(np.abs(array(psis[:500]))**2, np.linspace(-10*a,0,500))  #finding normalisation constant with half of the wavefunction
 plt.plot(np.linspace(-10*a,10*a,N), psis / sqrt(2*norm), label='$\psi_{2}$', color ='purple')
 
 plt.ylim(-2.5e5,2.5e5)
