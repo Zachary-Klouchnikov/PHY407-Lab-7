@@ -200,7 +200,7 @@ while abs(E1-E2)>target:
 
 print("E_1 =",E2/e,"eV")
 norm = simpson(np.abs(array(psis[:500]))**2, np.linspace(-10*a,0,500))  #finding normalisation constant with half of the wavefunction
-plt.plot(np.linspace(-10*a,10*a,N), psis / sqrt(2*norm), label='$\psi_{1}$', color ='coral')
+plt.plot(np.linspace(-10*a,10*a,N), psis / -sqrt(2*norm), label='$\psi_{1}$', color ='coral')
 
 E1 = 1500.0 *e
 E2 = 1400*e
