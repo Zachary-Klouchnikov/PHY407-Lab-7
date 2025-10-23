@@ -219,6 +219,7 @@ norm = simpson(np.abs(array(psis[:500]))**2, np.linspace(-10*a,0,500))  #finding
 plt.plot(np.linspace(-10*a,10*a,N), psis / sqrt(2*norm), label='$\psi_{2}$', color ='purple')
 
 plt.ylim(-2.5e5,2.5e5)
+plt.xlim(-5*a,5*a)
 plt.grid(alpha=0.5)
 plt.legend()
 plt.xlabel('Distance [m]')
