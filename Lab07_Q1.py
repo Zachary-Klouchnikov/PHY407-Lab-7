@@ -162,11 +162,11 @@ plt.plot(r_not_adaptive[0], r_not_adaptive[1], ls = ':', color = 'Teal', label =
 plt.plot(r_adaptive[0], r_adaptive[1], ls = ':', color = 'Coral', label = "Adaptive RK4")
 
 # Labels
-plt.title("Trajectory of a Ball Bearing Around a Space Rod", fontsize = 12)
-plt.xlabel("X Position $(m)$", fontsize = 12)
-plt.ylabel("Y Position $(m)$", fontsize = 12)
+plt.title("Trajectory of a Ball Bearing Around a Space Rod", fontsize = 14)
+plt.xlabel("X Position $(m)$", fontsize = 14)
+plt.ylabel("Y Position $(m)$", fontsize = 14)
 
-plt.legend(fontsize = 12)
+plt.legend(fontsize = 14)
 plt.grid()
 
 # plt.savefig('Figures\\Trajectory of a Ball Bearing Around a Space Rod.pdf')
